@@ -6,7 +6,7 @@ use work.alu_types_pack.all;
 entity stimuli_vector_alu is
 	port
 	(A_stim, B_stim 			: out reg_vector;
-		ALU_op_stim 			: out ALU_operation;
+		ALU_op_stim 			: out ALU_operation
 	);
 
 end stimuli_vector_alu ;
@@ -19,11 +19,11 @@ begin
 
 simulation : process
 
-procedure check_vector_alu(constant a, b: in INTEGER; c : in ALU_operation) is
+procedure check_vector_alu(a, b: in std_logic_vector(31 downto 0); c : in ALU_operation) is
 begin
 	for i in 0 to 31 loop
-		A_stim(i) <= std_logic_vector(to_unsigned(a,ADDRESS'length));
-		B_stim(i) <= std_logic_vector(to_unsigned(b,ADDRESS'length));
+		A_stim(i) <= a;
+		B_stim(i) <= b;
 	end loop;
 	
 	ALU_op_stim <= c;
@@ -34,14 +34,14 @@ end procedure check_vector_alu;
 begin
 -- Test vectors application
 
-check_vector_alu(2147483648, 1073741824, sum);
-check_vector_alu(2147483648, 1073741824, subtract);
-check_vector_alu(1073741824, 2147483648, lessthan); --false
-check_vector_alu(2147483648, 1073741824, lessthan); --true
-check_vector_alu(1431655765, 1, shiftleft);  --result: 2863311530
-check_vector_alu(1717986918, 3435973836, logic_and); 
-check_vector_alu(1717986918, 3435973836, logic_or);  
-check_vector_alu(1717986918, 3435973836, nop);  
+check_vector_alu("01000000000000000000000000000000", "00100000000000000000000000000000", sum);
+check_vector_alu("01000000000000000000000000000000", "00100000000000000000000000000000", subtract);
+check_vector_alu("00100000000000000000000000000000", "01000000000000000000000000000000", lessthan); --false
+check_vector_alu("01000000000000000000000000000000", "00100000000000000000000000000000", lessthan); --true
+check_vector_alu("01010101010101010101010101010101", "00000000000000000000000000000001", shiftleft);  --result: 2863311530
+check_vector_alu("01100110011001100110011001100110", "00110011001100110011001100110011", logic_and); 
+check_vector_alu("01100110011001100110011001100110", "00110011001100110011001100110011", logic_or);  
+check_vector_alu("01100110011001100110011001100110", "00110011001100110011001100110011", nop);  
 
 
 
