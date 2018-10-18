@@ -1,7 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use alu_types_pack.all
+use work.alu_types_pack.all;
 
 --arrays 2D
 --https://www.nandland.com/vhdl/examples/example-array-type-vhdl.html
@@ -10,8 +10,8 @@ entity vector_ALU is
 	port( 
 		A, B 			: in reg_vector;
 		ALU_op 			: in ALU_operation;
-		Zero, Overflow 	: out STD_LOGIC_VECTOR(31 downto 0)
-		ALU_result 		: out reg_vector;
+		Zero, Overflow 	: out STD_LOGIC_VECTOR(31 downto 0);
+		ALU_result 		: out reg_vector
 		);
 	
 end vector_ALU;
