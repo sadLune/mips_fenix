@@ -5,10 +5,10 @@ use work.alu_types_pack.all;
 
 entity stimuli_vector_alu is
 	port
-	(A_stim, B_stim 			: out reg_vector;
-		ALU_op_stim 			: out ALU_operation;
+	(
+		A_stim, B_stim 			: out reg_vector;
+		ALU_op_stim 			: out ALU_operation
 	);
-
 end stimuli_vector_alu ;
 
 architecture test of stimuli_vector_alu  is
