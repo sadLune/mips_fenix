@@ -3,8 +3,8 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.alu_types_pack.all;
 
-entity tb_vector_alu is
-end tb_vector_alu;
+entity tb_vector_mu is
+end tb_vector_mu;
 
 architecture arch of tb_vector_alu is
 --tope
