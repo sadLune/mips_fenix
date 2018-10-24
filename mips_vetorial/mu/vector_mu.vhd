@@ -34,7 +34,7 @@ gen_mu:
 		(A(i), B(i), Enable, Clock, Reset, Overflow(i), Executandoi(i), Readyi(i), O(i));
 	end GENERATE gen_mu;
 	
-	Executando <= OR Executandoi(i);
-	Ready <= OR Readyi(i);
+	Executando <= Executandoi(0);
+	Ready <= Readyi(0);
 
 end arch;
