@@ -6,7 +6,7 @@ use work.alu_types_pack.all;
 entity tb_vector_mu is
 end tb_vector_mu;
 
-architecture arch of tb_vector_alu is
+architecture arch of tb_vector_mu is
 --tope
 component vector_MU is
 	port( 
