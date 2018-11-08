@@ -18,9 +18,11 @@ component vector_ALU is
 end component;
 component stimuli_vector_alu is
 	port
-	(A_stim, B_stim 			: out reg_vector;
+	(
+		A_stim, B_stim 			: out reg_vector;
 		ALU_op_stim 			: out ALU_operation
 	);
+
 end component;
 
 signal  A_s, B_s 			:  reg_vector;
@@ -32,6 +34,9 @@ signal  ALU_result_s 		:  reg_vector;
 begin
 
 	DP : vector_ALU port map (A_s, B_s, ALU_op_s, Zero_s, Overflow_s, ALU_result_s);
-	stimuli : stimuli_vector_alu port map(A_s, B_s, ALU_op_s);
-	
+	stimuli : stimuli_vector_alu port map(A_stim, B_stim, ALU_op_stim);
+process(A_stim, B_stim, ALU_op_stim)
+	A <= A_stim;
+	B <= B_stim;
+	ALU_op <= ALU_op_stim;
 end arch;
