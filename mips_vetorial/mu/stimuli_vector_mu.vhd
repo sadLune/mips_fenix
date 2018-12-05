@@ -19,11 +19,11 @@ begin
 
 simulation : process
 
-procedure check_vector_mu(clock, en, rst : in std_logic; a, b: in std_logic_vector(31 downto 0)) is
+procedure check_vector_mu(clock, en, rst : in std_logic; constant a, b: in INTEGER) is
 begin
 	for i in 0 to 31 loop
-		A_stim(i) <= a;
-		B_stim(i) <= b;
+		A_stim(i) <= std_logic_vector(to_unsigned(a,A_stim'length));
+		B_stim(i) <= std_logic_vector(to_unsigned(b,B_stim'length));
 	end loop;
 	
 	Clock_stim <= clock;
@@ -36,15 +36,15 @@ end procedure check_vector_mu;
 begin
 -- Test vectors application
 
-check_vector_mu('1', '1', '1', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('0', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('1', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('0', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('1', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('0', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('1', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('0', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
-check_vector_mu('1', '1', '0', "00000000000000000000000000000000", "00000000000000000000000000000000");
+check_vector_mu('1', '1', '1', 65535, 65535);
+check_vector_mu('0', '1', '0', 65535, 65535);
+check_vector_mu('1', '1', '0', 65535, 65535);
+check_vector_mu('0', '1', '0', 65535, 65535);
+check_vector_mu('1', '1', '0', 65535, 65535);
+check_vector_mu('0', '1', '0', 65535, 65535);
+check_vector_mu('1', '1', '0', 65535, 65535);
+check_vector_mu('0', '1', '0', 65535, 65535);
+check_vector_mu('1', '1', '0', 65535, 65535);
 
 wait;
 end process simulation;
