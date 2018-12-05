@@ -6,7 +6,7 @@ use work.alu_types_pack.all;
 entity stimuli_vector_alu is
 	port
 	(
-		A_stim, B_stim 			: out reg_vector;
+		A_stim, B_stim 			: out reg_vector_frag;
 		ALU_op_stim 			: out ALU_operation
 	);
 
@@ -22,7 +22,7 @@ simulation : process
 
 procedure check_vector_alu(a, b: in std_logic_vector(31 downto 0); c : in ALU_operation) is
 begin
-	for i in 0 to 31 loop
+	for i in 0 to 3 loop
 		A_stim(i) <= a;
 		B_stim(i) <= b;
 	end loop;

@@ -10,25 +10,25 @@ architecture arch of tb_vector_mu is
 --tope
 component vector_MU is
 	port( 
-		A, B 			: in reg_vector;
+		A, B 			: in reg_vector_frag;
 		Enable,Clock,Reset: in std_logic;
-		Overflow 	: out STD_LOGIC_VECTOR(31 downto 0);
+		Overflow 	: out STD_LOGIC_VECTOR(3 downto 0);
 		Executando,Ready: out std_logic;
-		O 		: out reg_vector
+		O 		: out reg_vector_frag
 		);
 end component;
 component stimuli_vector_mu is
 	port
-	(A_stim, B_stim 							: out reg_vector;
+	(A_stim, B_stim 							: out reg_vector_frag;
 		Enable_stim,Clock_stim,Reset_stim 		: out std_logic
 	);
 end component;
 
-signal  A_s, B_s 					:  reg_vector;
+signal  A_s, B_s 					:  reg_vector_frag;
 signal  Enable_s,Clock_s,Reset_s	:  std_logic;
-signal  Overflow_s		 			:  STD_LOGIC_VECTOR(31 downto 0);
+signal  Overflow_s		 			:  STD_LOGIC_VECTOR(3 downto 0);
 signal	Executando_s,Ready_s		:  std_logic;
-signal  MU_result_s 				:  reg_vector;
+signal  MU_result_s 				:  reg_vector_frag;
 
 
 begin

@@ -31,11 +31,13 @@ if Reset = '0' then
 		end if;
 	end if;
 elsif Reset = '1' then
-	for i in 0 to 31 loop
-		reg_vector_s(i) <= x"00000000";
+	for i in 0 to 7 loop
+		for j in 0 to 3 loop
+			reg_vector_s(i)(j) <= x"00000000";
+		end loop;
 	end loop;
-	for j in 0 to 31 loop
-		reg_file_s(j) <= reg_vector_s;
+	for i in 0 to 31 loop
+		reg_file_s(i) <= reg_vector_s;
 	end loop;
 end if;
 end process;

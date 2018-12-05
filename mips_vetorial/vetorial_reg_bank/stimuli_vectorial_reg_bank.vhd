@@ -26,8 +26,10 @@ simulation : process
 
 procedure check_vectorial_reg_bank(constant read_reg1, read_reg2, write_reg, write_data: in INTEGER; reg_write_e, reset, clock : in std_logic) is
 begin
-	for i in 0 to 31 loop
-		Write_data_stim(i) <= std_logic_vector(to_unsigned(write_data,Write_data_stim(i)'length));
+	for i in 0 to 7 loop
+		for j in 0 to 3 loop
+			Write_data_stim(i)(j) <= std_logic_vector(to_unsigned(write_data,Write_data_stim(i)(j)'length));
+		end loop;
 	end loop;
 	
 	Read_reg_1_stim	<= std_logic_vector(to_unsigned(read_reg1,Read_reg_1_stim'length));

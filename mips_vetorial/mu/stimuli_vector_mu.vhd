@@ -5,7 +5,7 @@ use work.alu_types_pack.all;
 
 entity stimuli_vector_mu is
 	port
-	(A_stim, B_stim 							: out reg_vector;
+	(A_stim, B_stim 							: out reg_vector_frag;
 		Enable_stim,Clock_stim,Reset_stim 		: out std_logic
 	);
 
@@ -21,9 +21,9 @@ simulation : process
 
 procedure check_vector_mu(clock, en, rst : in std_logic; constant a, b: in INTEGER) is
 begin
-	for i in 0 to 31 loop
-		A_stim(i) <= std_logic_vector(to_unsigned(a,A_stim'length));
-		B_stim(i) <= std_logic_vector(to_unsigned(b,B_stim'length));
+	for i in 0 to 3 loop
+		A_stim(i) <= std_logic_vector(to_unsigned(a,A_stim(i)'length));
+		B_stim(i) <= std_logic_vector(to_unsigned(b,B_stim(i)'length));
 	end loop;
 	
 	Clock_stim <= clock;

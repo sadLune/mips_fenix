@@ -5,11 +5,11 @@ use work.alu_types_pack.all;
 
 entity vector_MU is
 	port( 
-		A, B 			: in reg_vector;
+		A, B 			: in reg_vector_frag;
 		Enable,Clock,Reset: in std_logic;
-		Overflow 	: out STD_LOGIC_VECTOR(31 downto 0);
+		Overflow 	: out STD_LOGIC_VECTOR(3 downto 0);
 		Executando,Ready: out std_logic;
-		O 		: out reg_vector
+		O 		: out reg_vector_frag
 		);
 	
 end vector_MU;
@@ -25,11 +25,11 @@ component MultiplicationUnit is
 	);
 end component;
 
-	signal Executandoi, Readyi : std_logic_vector(31 downto 0);
+	signal Executandoi, Readyi : std_logic_vector(3 downto 0);
 begin
 
 gen_mu: 
-	for i in 0 to 31 GENERATE
+	for i in 0 to 3 GENERATE
 		mu : MultiplicationUnit port map
 		(A(i), B(i), Enable, Clock, Reset, Overflow(i), Executandoi(i), Readyi(i), O(i));
 	end GENERATE gen_mu;

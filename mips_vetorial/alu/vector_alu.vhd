@@ -8,10 +8,10 @@ use work.alu_types_pack.all;
 
 entity vector_ALU is
 	port( 
-		A, B 			: in reg_vector;
+		A, B 			: in reg_vector_frag;
 		ALU_op 			: in ALU_operation;
-		Zero, Overflow 	: out STD_LOGIC_VECTOR(31 downto 0);
-		ALU_result 		: out reg_vector
+		Zero, Overflow 	: out STD_LOGIC_VECTOR(3 downto 0);
+		ALU_result 		: out reg_vector_frag
 		);
 	
 end vector_ALU;
@@ -30,7 +30,7 @@ end component;
 begin
 
 gen_alu: 
-	for i in 0 to 31 GENERATE
+	for i in 0 to 3 GENERATE
 		alu : ArithmeticLogicUnit port map
 		(A(i), B(i), ALU_op, Zero(i), Overflow(i), ALU_result(i));
 	end GENERATE gen_alu;
