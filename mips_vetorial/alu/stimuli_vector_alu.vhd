@@ -5,7 +5,8 @@ use work.alu_types_pack.all;
 
 entity stimuli_vector_alu is
 	port
-	(A_stim, B_stim 			: out reg_vector;
+	(
+		A_stim, B_stim 			: out reg_vector;
 		ALU_op_stim 			: out ALU_operation
 	);
 
@@ -15,10 +16,10 @@ architecture test of stimuli_vector_alu  is
 	constant TIME_DELTA : time := 100 ps;
 
 
+
+
+
 begin
-
-simulation : process
-
 procedure check_vector_alu(a, b: in std_logic_vector(31 downto 0); c : in ALU_operation) is
 begin
 	for i in 0 to 31 loop
@@ -28,10 +29,13 @@ begin
 	
 	ALU_op_stim <= c;
 
-wait for TIME_DELTA;
+	wait for 100 ps;
 end procedure check_vector_alu;
-
+process
 begin
+
+
+
 -- Test vectors application
 
 check_vector_alu("01000000000000000000000000000000", "00100000000000000000000000000000", sum);
@@ -46,5 +50,5 @@ check_vector_alu("01100110011001100110011001100110", "00110011001100110011001100
 
 
 wait;
-end process simulation;
+end process;
 end architecture test;
