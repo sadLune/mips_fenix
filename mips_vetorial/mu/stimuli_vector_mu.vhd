@@ -36,15 +36,25 @@ end procedure check_vector_mu;
 begin
 -- Test vectors application
 
-check_vector_mu('1', '1', '1', 65535, 65535);
-check_vector_mu('0', '1', '0', 65535, 65535);
-check_vector_mu('1', '1', '0', 65535, 65535);
-check_vector_mu('0', '1', '0', 65535, 65535);
-check_vector_mu('1', '1', '0', 65535, 65535);
-check_vector_mu('0', '1', '0', 65535, 65535);
-check_vector_mu('1', '1', '0', 65535, 65535);
-check_vector_mu('0', '1', '0', 65535, 65535);
-check_vector_mu('1', '1', '0', 65535, 65535);
+--check_vector_mu('1', '1', '1', 65535, 65535);
+--check_vector_mu('0', '1', '0', 65535, 65535);
+--check_vector_mu('1', '1', '0', 65535, 65535);
+--check_vector_mu('0', '1', '0', 65535, 65535);
+--check_vector_mu('1', '1', '0', 65535, 65535);
+--check_vector_mu('0', '1', '0', 65535, 65535);
+--check_vector_mu('1', '1', '0', 65535, 65535);
+--check_vector_mu('0', '1', '0', 65535, 65535);
+--check_vector_mu('1', '1', '0', 65535, 65535);
+
+check_vector_mu('1', '1', '1', 3, 5);
+check_vector_mu('0', '1', '0', 3, 5);
+check_vector_mu('1', '1', '0', 3, 5);
+check_vector_mu('0', '1', '0', 3, 5);
+check_vector_mu('1', '1', '0', 3, 5);
+check_vector_mu('0', '1', '0', 3, 5);
+check_vector_mu('1', '1', '0', 3, 5);
+check_vector_mu('0', '1', '0', 3, 5);
+check_vector_mu('1', '1', '0', 3, 5);
 
 wait;
 end process simulation;

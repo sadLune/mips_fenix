@@ -33,15 +33,15 @@ component stimuli_vectorial_reg_bank is
 		Clock_stim		: out  std_logic
 	);
 end component;
-signal	read_reg_1_s	: in  std_logic_vector(5 downto 0);
-signal	read_reg_2_s	: in  std_logic_vector(5 downto 0);
-signal	write_reg_s		: in  std_logic_vector(5 downto 0);
-signal	write_data_s	: in  reg_vector;
-signal	reg_write_s		: in  std_logic;
-signal	reset_s			: in  std_logic;
-signal	clock_s			: in  std_logic;
-signal	read_data_1_s	: out reg_vector;
-signal	read_data_2_s	: out reg_vector
+signal	read_reg_1_s	:  std_logic_vector(5 downto 0);
+signal	read_reg_2_s	:  std_logic_vector(5 downto 0);
+signal	write_reg_s		:  std_logic_vector(5 downto 0);
+signal	write_data_s	:  reg_vector;
+signal	reg_write_s		:  std_logic;
+signal	reset_s			:  std_logic;
+signal	clock_s			:  std_logic;
+signal	read_data_1_s	:  reg_vector;
+signal	read_data_2_s	:  reg_vector;
 
 begin
 

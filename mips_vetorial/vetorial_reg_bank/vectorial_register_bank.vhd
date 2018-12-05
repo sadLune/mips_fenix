@@ -35,10 +35,10 @@ elsif Reset = '1' then
 		reg_vector_s(i) <= x"00000000";
 	end loop;
 	for j in 0 to 31 loop
-		regarray(j) <= reg_vector_s;
+		reg_file_s(j) <= reg_vector_s;
 	end loop;
 end if;
 end process;
-	Read_data_1 <= regarray(conv_integer(Read_reg_1));--Le registrador 1
-	Read_data_2 <= regarray(conv_integer(Read_reg_2));--Le registrador 2
+	Read_data_1 <= reg_file_s(conv_integer(Read_reg_1));--Le registrador 1
+	Read_data_2 <= reg_file_s(conv_integer(Read_reg_2));--Le registrador 2
 end arch_vectorial_register_bank;
